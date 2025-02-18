@@ -1,7 +1,14 @@
-import React from "react";
+'use client'
+
+import React, { useEffect } from "react";
+import voiceRecorder from "@/utils/voiceRecorder";
 
 
 export default function Voice() {
+    useEffect(() => {
+        voiceRecorder();
+    }, []);
+
     return (
         <>
             <div className="flex flex-col items-center justify-around md:w-[80vw] w-[100vw] h-[70vh]">
