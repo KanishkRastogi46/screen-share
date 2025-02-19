@@ -1,36 +1,96 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js Screen Sharing & Communication Tool
+
+A comprehensive web application built with Next.js that combines voice communication, screen recording, and chat functionality in a single, intuitive interface.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+- Node.js (v14 or higher)
+- npm or yarn package manager
 
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/KanishkRastogi/screen-share.git
+```
+
+2. Install dependencies:
+```bash
+cd screen-share
+npm install
+# or
+yarn install
+```
+
+3. Start the development server:
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open your browser and navigate to `http://localhost:3000`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+## Features
 
-To learn more about Next.js, take a look at the following resources:
+### Voice Communication
+The application provides real-time voice communication capabilities:
+- Audio input capture and analysis using the Media Stream API
+- Interactive canvas-based audio visualization
+- Simple controls for starting and stopping voice recording
+- Real-time audio feedback and monitoring
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Screen Recording
+Built-in screen capture functionality with a user-friendly interface:
+- Custom screen recording utility for capturing display content
+- Live preview of the recorded stream
+- Intuitive recording controls with clear visual feedback
+- Screen capture output displayed in a dedicated video element
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Chat Interface
+Integrated messaging system for communication:
+- Clean and simple messaging UI
+- Message input and display functionality
+- Simulated bot responses for testing
+- Real-time message updates
 
-## Deploy on Vercel
+## Technical Details
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Frontend
+- Built with Next.js for optimal performance and SEO
+- Styled using Tailwind CSS for responsive design
+- Dynamic gradient background with custom animations
+- Interactive feature switching between Voice, Screen Share, and Chat modes
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Design
+- Responsive layout that works across different device sizes
+- Animated gradient background for visual engagement
+- Consistent UI/UX across all features
+- Modern and clean interface design
+
+
+
+## Usage
+
+### Voice Communication
+1. Click on the Voice tab in the main navigation
+2. Grant microphone permissions when prompted
+3. Use the start/stop controls to manage voice recording
+4. View the audio visualization on the canvas
+
+### Screen Recording
+1. Navigate to the Screen Share section
+2. Click "Record" to begin screen capture
+3. Select the screen/window you want to share
+4. Use the stop button to end recording
+
+### Chat Interface
+1. Select the Chat feature from the main menu
+2. Type your message in the input field
+3. Press enter or click send to transmit
+4. View bot responses in the chat window
+
+
