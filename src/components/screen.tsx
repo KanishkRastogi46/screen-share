@@ -29,7 +29,7 @@ export default function Screen() {
     return (
         <>
             <div className="flex md:w-[60vw] w-[90vw] h-[70vh] items-center justify-center">
-                <div className="flex flex-col justify-center items-center w-full h-full shadow-2xl bg-purple-800 rounded-lg">
+                <div className="flex flex-col justify-center items-center w-full h-full shadow-2xl bg-violet-300 rounded-lg">
                     <div className="w-full h-[80%]">
                         {
                             record && <video className="w-full h-full" ref={videoRef}></video>

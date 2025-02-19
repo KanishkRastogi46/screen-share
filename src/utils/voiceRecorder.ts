@@ -1,11 +1,10 @@
-function voiceRecorder() {
-    navigator.mediaDevices.getUserMedia({audio: true})
-    .then(stream=>{
-        console.log(stream);
-        stream.getTracks();
-    }).catch(err=>{
-        console.log(err)
-    })
+export default async function voiceRecorder(): Promise<MediaStream | undefined> {
+    let stream: MediaStream;
+    try {
+        stream = await navigator.mediaDevices.getUserMedia({audio: true})
+        return stream;
+    } catch (error) {
+        console.log(error);
+    }
 }
 
-export default voiceRecorder;

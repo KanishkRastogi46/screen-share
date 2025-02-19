@@ -20,7 +20,7 @@ export default function Chat() {
     return (
         <>
             <div className="flex flex-col md:flex-row md:w-[80vw] w-[90vw] h-[70vh] items-center justify-center">
-                <div className="flex justify-center items-center md:w-[60%] w-full h-full shadow-2xl bg-purple-800 rounded-lg">
+                <div className="flex justify-center items-center md:w-[60%] w-full h-full shadow-2xl bg-violet-300 rounded-lg">
                     <h1>Screen share</h1>
                 </div>
                 <div className="flex flex-col justify-center items-center md:w-[40%] w-full h-full bg-white rounded-lg">

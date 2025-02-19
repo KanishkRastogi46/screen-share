@@ -18,7 +18,7 @@ export default function Main() {
             setVoice(true);
             setScreen(false);
             setChat(false);
-        } else if (tabName === "Screen") {
+        } else if (tabName === "Screen Share") {
             setVoice(false);
             setScreen(true);
             setChat(false);
@@ -32,7 +32,7 @@ export default function Main() {
     return (
         <>
             <div className="w-screen h-[90vh]">
-                <div className="w-full h-full flex flex-col items-center justify-between bg-gradient-to-r from-violet-500 via-pink-300 to-violet-700 bg-[length:200%_200%] animate-move-bg">
+                <div className="w-full h-full flex flex-col items-center justify-between bg-gradient-to-r from-violet-300 via-[rgb(108,9,138)] to-violet-300 bg-[length:200%_200%] animate-move-bg">
                     <div className="">
                     {
                         voice && <Voice />
@@ -51,21 +51,21 @@ export default function Main() {
                     }
                     </div>
                     
-                    <div className="flex rounded-2xl h-[5vh] mb-8 bg-black">
+                    <div className="flex rounded-2xl h-[5vh] mb-16 bg-black">
                         <button 
-                            className={`w-16 ${voice ? 'bg-purple-500': ''} rounded-2xl`}
+                            className={`w-16 ${voice ? 'bg-blue-700': ''} rounded-2xl`}
                             onClick={handleClick}
                         >
                             Call
                         </button>
                         <button 
-                            className={`w-16 ${screen ? 'bg-purple-500': ''} rounded-2xl`}
+                            className={`w-32 ${screen ? 'bg-blue-700': ''} rounded-2xl`}
                             onClick={handleClick}
                         >
-                            Screen
+                            Screen Share
                         </button>
                         <button 
-                            className={`w-16 ${chat ? 'bg-purple-500': ''} rounded-2xl`}
+                            className={`w-16 ${chat ? 'bg-blue-700': ''} rounded-2xl`}
                             onClick={handleClick}
                         >
                             Chat
