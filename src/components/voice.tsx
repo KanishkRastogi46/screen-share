@@ -6,7 +6,8 @@ import voiceRecorder from "@/utils/voiceRecorder";
 
 export default function Voice() {
     useEffect(() => {
-        voiceRecorder();
+        if (navigator.mediaDevices) voiceRecorder();
+        else alert("Your browser does not support voice recording");
     }, []);
 
     return (

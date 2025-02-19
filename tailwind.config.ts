@@ -12,6 +12,15 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      keyframes: {
+        move: {
+          "0%, 100%": { "background-position": "0% 50%" },
+          "50%": { "background-position": "100% 50%" },
+        },
+      },
+      animation: {
+        "move-bg": "move 15s ease infinite",
+      },
     },
   },
   plugins: [],

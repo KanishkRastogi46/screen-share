@@ -32,7 +32,7 @@ export default function Main() {
     return (
         <>
             <div className="w-screen h-[90vh]">
-                <div className="w-full h-full flex flex-col items-center justify-between bg-gradient-to-b from-violet-500 via-pink-300 to-violet-700 ">
+                <div className="w-full h-full flex flex-col items-center justify-between bg-gradient-to-r from-violet-500 via-pink-300 to-violet-700 bg-[length:200%_200%] animate-move-bg">
                     <div className="">
                     {
                         voice && <Voice />
