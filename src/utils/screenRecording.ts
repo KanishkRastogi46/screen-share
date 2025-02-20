@@ -1,8 +1,14 @@
 export default async function screenRecording(video: React.RefObject<HTMLVideoElement | null>) {
     if (!navigator.mediaDevices) alert("Your browser does not support screen recording");
+    
     else {
         try {
-            const stream = await navigator.mediaDevices.getDisplayMedia({video: true, audio: true});
+            const stream = await navigator.mediaDevices.getDisplayMedia({
+                video: {
+                    width: {ideal: 1920},
+                    height: {ideal: 1080}
+                },
+                audio: true});
             if (video.current) {
                 video.current.srcObject = stream;
                 video.current.play();
@@ -11,6 +17,5 @@ export default async function screenRecording(video: React.RefObject<HTMLVideoEl
         } catch (error) {
             console.log(error);
         }
-    }
-    
+    }    
 }

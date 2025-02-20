@@ -24,32 +24,59 @@ export default function Chat() {
                     <h1>Screen share</h1>
                 </div>
                 <div className="flex flex-col justify-center items-center md:w-[40%] w-full h-full bg-white rounded-lg">
-                    <div className="text-black md:h-[90%] h-[80%] w-full p-2 overflow-y-auto">
+                    <div className="flex justify-start items-center p-2 bg-blue-500 w-full h-[20%] md:h-[10%]">
+                        <div className="flex items-center">
+                            <div className="w-10 h-10 rounded-full bg-gray-300 mr-2" style={{ backgroundImage: 'url()', backgroundSize: 'cover' }}></div>
+                            <span className="text-white font-bold">Username</span>
+                        </div>
+                    </div>
+                    <div className="text-black md:h-[80%] h-[60%] w-full p-2 overflow-y-auto">
+                        <div className="flex justify-start mt-2">
+                            <div className="bg-purple-100 text-black p-2 rounded-lg max-w-xs">
+                                <p><span className="font-bold text-violet-500">Bot: </span>Hello User, How can I help you? I hope you are doing well</p>
+                            </div>
+                        </div>
                         {
-                            messages.map((msg, index)=>{
+                            messages.map((msg, index) => {
                                 return (
-                                    <div className="w-full" key={index}>
-                                        <div className="flex">
-                                            <p className="text-black  p-2 mb-2"><span className="font-bold text-blue-500">User: </span>{msg}</p>
+                                    <div className="w-full mb-4" key={index}>
+                                        <div className="flex justify-end mt-2">
+                                            <div className="bg-blue-100 text-black p-2 rounded-lg max-w-xs">
+                                                <p><span className="font-bold text-blue-500">User: </span>{msg}</p>
+                                            </div>
                                         </div>
-                                        <div className="flex">
-                                            <p className="text-black  p-2 text-left mb-2"><span className="font-bold text-violet-500">Bot: </span>{botMessage}</p>
+                                        <div className="flex justify-start mt-2">
+                                            <div className="bg-purple-100 text-black p-2 rounded-lg max-w-xs">
+                                                <p><span className="font-bold text-violet-500">Bot: </span>{botMessage}</p>
+                                            </div>
                                         </div>
                                     </div>
-                                    
                                 )
                             })
                         }
                     </div>
-                    <div className="flex justify-center items-center w-full md:h-[10%] h-[20%] bg-blue-500 gap-2 px-2">
+                    <div className="flex justify-center items-center w-full md:h-[10%] h-[20%]  gap-2 px-2 rounded-lg">
                         <input 
                             type="text" 
-                            className="w-3/4 h-1/2 bg-white rounded-[10px] px-2 py-1 text-black" 
+                            className="flex-grow h-10 bg-white rounded-[10px] px-2 py-1 text-black border-2 border-black focus:border-blue-500" 
                             onChange={(e) => setMessage(e.target.value)}
                             value={message}
+                            placeholder="Type your message..."
+                            autoFocus
                         />
+                        <input 
+                            type="file" 
+                            className="hidden" 
+                            id="filePicker"
+                        />
+                        <label 
+                            htmlFor="filePicker" 
+                            className="flex-shrink-0 h-10 bg-gray-300 text-black rounded-xl px-4 flex items-center cursor-pointer"
+                        >
+                            +
+                        </label>
                         <button 
-                            className="w-1/4 h-1/2 bg-black text-white rounded-xl"
+                            className="flex-shrink-0 h-10 bg-black text-white rounded-xl px-4"
                             onClick={sendMessage}
                         >
                             Send

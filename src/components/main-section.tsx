@@ -32,7 +32,7 @@ export default function Main() {
     return (
         <>
             <div className="w-screen h-[90vh]">
-                <div className="w-full h-full flex flex-col items-center justify-between bg-gradient-to-r from-violet-300 via-[rgb(108,9,138)] to-violet-300 bg-[length:200%_200%] animate-move-bg">
+                <div className="w-full h-full flex flex-col items-center justify-evenly bg-gradient-to-r from-violet-300 via-[rgb(108,9,138)] to-violet-300 bg-[length:200%_200%] animate-move-bg">
                     <div className="">
                     {
                         voice && <Voice />
@@ -51,7 +51,7 @@ export default function Main() {
                     }
                     </div>
                     
-                    <div className="flex rounded-2xl h-[5vh] mb-16 bg-black">
+                    <div className="flex rounded-2xl h-[5vh] mb-12 bg-black">
                         <button 
                             className={`w-16 ${voice ? 'bg-blue-700': ''} rounded-2xl`}
                             onClick={handleClick}
