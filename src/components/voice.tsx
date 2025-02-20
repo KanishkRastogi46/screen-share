@@ -1,40 +1,42 @@
 'use client'
 
-import React from "react";
+import React, {useEffect} from "react";
 import voiceRecorder from "@/utils/voiceRecorder";
 
 
 export default function Voice() {
-    const [audioStream, setAudioStream] = React.useState<MediaStream | undefined>();
-    const [record, setRecord] = React.useState<Boolean>(false);
+    const [stream, setStream] = React.useState<MediaStream | undefined>();
+    const [record, setRecord] = React.useState<boolean>(false);
+
+    // clean up function
+    // when user changes tab
+    // without stopping the audio recording
+    // it will stop the recording
+    useEffect(()=>{
+        return () => {
+            if (stream) {
+                stream.getTracks().forEach((track) => track.stop());
+            }
+        }
+    })
 
     const startRecording = async function () {
-        setAudioStream(await voiceRecorder());
-        setRecord(!record);
+        const audioStream = await voiceRecorder();
+        setStream(audioStream);
+        setRecord(true);
 
-        if (audioStream) {
-
-            const audioContext = new AudioContext();
-            const src = audioContext.createMediaStreamSource(audioStream);
-
-            const analyzer = audioContext.createAnalyser();
-            analyzer.fftSize = 2048;
-            const bufferLength = analyzer.frequencyBinCount;
-            const dataArray = new Uint8Array(bufferLength);
-            analyzer.getByteTimeDomainData(dataArray);
-
-            src.connect(analyzer);
-            analyzer.connect(audioContext.destination);
+        if (!audioStream) {
+            setRecord(false);
         }
     }
 
     const stopRecording = function () {
-        if (audioStream) {
-            const tracks = audioStream.getTracks();
+        if (stream) {
+            const tracks = stream.getTracks();
             tracks.forEach((track) => track.stop());
-            setRecord(!record);
         }
-        setAudioStream(undefined);
+        setStream(undefined);
+        setRecord(false);
     }
 
     return (

@@ -5,6 +5,7 @@ export default async function voiceRecorder(): Promise<MediaStream | undefined> 
         return stream;
     } catch (error) {
         console.log(error);
+        return undefined;
     }
 }
 

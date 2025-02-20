@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import screenRecording from "@/utils/screenRecording";
 
 
@@ -10,9 +10,25 @@ export default function Screen() {
     const [record, setRecord] = useState<boolean>(false);
     const [stream, setStream] = useState<MediaStream>();
 
+    useEffect(()=>{
+        return ()=>{
+            if (stream && videoRef.current) {
+                const tracks = stream.getVideoTracks();
+                tracks.forEach((track) => track.stop());
+                videoRef.current.srcObject = null;
+            }
+        }
+    })
+
     const startRecording = async function () {
         setRecord(true);
-        setStream(await screenRecording(videoRef));
+        const videoStream = await screenRecording(videoRef)
+        setStream(videoStream);
+
+        if (!videoStream) {
+            setRecord(false);
+            alert("Permission denied by user for capturing screen");
+        }
     }
 
     const stopRecording = function () {
@@ -21,6 +37,7 @@ export default function Screen() {
             tracks.forEach((track) => track.stop());
             videoRef.current.srcObject = null;
         }
+        setStream(undefined);
         setRecord(false);
     }
 
