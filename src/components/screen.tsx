@@ -5,21 +5,19 @@ import screenRecording from "@/utils/screenRecording";
 
 
 export default function Screen() {
-    let videoRef = useRef<HTMLVideoElement>(null);
+    const videoRef = useRef<HTMLVideoElement>(null);
 
-    let [record, setRecord] = useState<Boolean>(false);
-    let [stream, setStream] = useState<MediaStream>();
+    const [record, setRecord] = useState<boolean>(false);
+    const [stream, setStream] = useState<MediaStream>();
 
     const startRecording = async function () {
         setRecord(true);
-        let s = await screenRecording(videoRef);
-        setStream(s);
-        window.blur();
+        setStream(await screenRecording(videoRef));
     }
 
     const stopRecording = function () {
         if (stream && videoRef.current) {
-            let tracks = stream.getTracks();
+            const tracks = stream.getTracks();
             tracks.forEach((track) => track.stop());
             videoRef.current.srcObject = null;
         }

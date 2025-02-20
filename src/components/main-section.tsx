@@ -7,9 +7,9 @@ import Chat from "./chat";
 
 
 export default function Main() {
-    let [voice, setVoice] = useState(true);
-    let [screen, setScreen] = useState(false);
-    let [chat, setChat] = useState(false);
+    const [voice, setVoice] = useState(true);
+    const [screen, setScreen] = useState(false);
+    const [chat, setChat] = useState(false);
 
     const handleClick = function (e: React.MouseEvent<HTMLButtonElement>) {
         e.preventDefault();

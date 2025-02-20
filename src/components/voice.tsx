@@ -1,13 +1,12 @@
 'use client'
 
-import React, { useEffect } from "react";
+import React from "react";
 import voiceRecorder from "@/utils/voiceRecorder";
 
 
 export default function Voice() {
-    let [audioStream, setAudioStream] = React.useState<MediaStream | undefined>();
-    let [record, setRecord] = React.useState<Boolean>(false);
-    let canvasRef = React.useRef<HTMLCanvasElement>(null);
+    const [audioStream, setAudioStream] = React.useState<MediaStream | undefined>();
+    const [record, setRecord] = React.useState<Boolean>(false);
 
     const startRecording = async function () {
         setAudioStream(await voiceRecorder());
@@ -31,7 +30,7 @@ export default function Voice() {
 
     const stopRecording = function () {
         if (audioStream) {
-            let tracks = audioStream.getTracks();
+            const tracks = audioStream.getTracks();
             tracks.forEach((track) => track.stop());
             setRecord(!record);
         }

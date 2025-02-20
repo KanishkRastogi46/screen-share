@@ -4,8 +4,8 @@ import React, { useState } from "react";
 
 
 export default function Chat() {
-    let [message, setMessage] = useState<string>('');
-    let [messages, setMessages] = useState<string[]>([]);
+    const [message, setMessage] = useState<string>('');
+    const [messages, setMessages] = useState<string[]>([]);
 
     const botMessage = "This is a bot message, just for testing purposes";
 
