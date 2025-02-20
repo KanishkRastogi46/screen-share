@@ -94,3 +94,5 @@ Integrated messaging system for communication:
 4. View bot responses in the chat window
 
 
+## Note
+`navigator.mediaDevices.getDisplayMedia()` is not supported on Android or iOS device browsers, so screen recording won't work on mobile phone
